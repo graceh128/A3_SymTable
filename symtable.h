@@ -1,9 +1,12 @@
+/* Interface file for symbol table data type*/
 #ifndef SYMTABLE_H
 #define SYMTABLE_H
 
 #include <stddef.h>
 
+   /* Node struct for linked list*/
   typedef struct Node *Node;
+  /* SymTable_T struct for symbol table*/
   typedef struct SymTable_T *SymTable_T;
 
   /* Returns new SymTable_T object without bindings or NULL if 
@@ -42,7 +45,8 @@
   change oSymTable and returns NULL. */
   void *SymTable_remove(SymTable_T oSymTable, const char *pcKey);
 
-  /* Apply the function pfApply to all bindings in oSymTable. */
+  /* Apply the function pfApply to all bindings in oSymTable. Takes pvExtra as an extra
+  parameter */
   void SymTable_map(SymTable_T oSymTable,
      void (*pfApply)(const char *pcKey, void *pvValue, void *pvExtra),
      const void *pvExtra);
